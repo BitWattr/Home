@@ -83,7 +83,7 @@
 
             const scene = new THREE.Scene();
             const camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
-            camera.position.z = 5;
+            camera.position.z = 3; // Adjusted for a closer view
 
             const loader = new THREE.OBJLoader();
             loader.load(objPath, function (object) {

@@ -27,9 +27,14 @@
             color: #fff;
             margin: 0 1rem;
             text-decoration: none;
+            padding: 0.5rem;
         }
         nav a:hover {
             text-decoration: underline;
+        }
+        nav a.active {
+            background-color: #666;
+            border-radius: 5px;
         }
         main {
             padding: 2rem;
@@ -48,15 +53,15 @@
         <h1>BitWattr</h1>
     </header>
     <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
     </nav>
     <main>
         <section class="project">
-            <h2>Current Project</h2>
-            <p>We are currently working on a 3D low poly to high poly point cloud AI model. This innovative project aims to transform simple low poly structures into detailed high-quality 3D high poly models.</p>
+            <h2>Home</h2>
+            <p>Welcome to BitWattr, an AI startup focused on research in AI models, deep learning, and machine learning.</p>
         </section>
     </main>
 </body>
