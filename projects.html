@@ -70,15 +70,6 @@
     </nav>
     <main>
         <section class="project">
-            <h2>Think 3D</h2>
-            <p>We are working on a 3D low poly to high poly point cloud AI model. This innovative project aims to transform simple low poly structures into detailed high-quality 3D high poly models.</p>
-            <div class="canvas-container">
-                <canvas id="canvas1"></canvas>
-                <canvas id="canvas2"></canvas>
-            </div>
-        </section>
-
-        <section class="project">
             <h2>NoAI LG - No AI Language Generalizer</h2>
             <p>NoAI LG is an innovative project aimed at generating meaningful sentences without relying on neural networks. Instead of deep learning, it uses pattern-based techniques.</p>
             <h3>Features:</h3>
@@ -87,8 +78,18 @@
                 <li>📊 A similarity matrix to replace words with context-aware alternatives.</li>
                 <li>💡 Future applications: Question Answering, Language Generation, Summarization.</li>
             </ul>
-            <p>Try it out by running <code>infer.py</code>!</p>
+            <p><a href="https://github.com/BitWattr/NoAI-LG">Visit github repo</a></p>
         </section>
+        <section class="project">
+            <h2>Think 3D</h2>
+            <p>We are working on a 3D low poly to high poly point cloud AI model. This innovative project aims to transform simple low poly structures into detailed high-quality 3D high poly models.</p>
+            <div class="canvas-container">
+                <canvas id="canvas1"></canvas>
+                <canvas id="canvas2"></canvas>
+            </div>
+        </section>
+
+
 
     </main>
 
@@ -102,10 +103,7 @@
 
             const scene = new THREE.Scene();
             const camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
-            camera.position.z = 3;
-
-            const light = new THREE.AmbientLight(0xffffff, 1);
-            scene.add(light);
+            camera.position.z = 3; // Adjusted for a closer view
 
             const loader = new THREE.OBJLoader();
             loader.load(objPath, function (object) {
@@ -115,11 +113,10 @@
 
             function animate() {
                 requestAnimationFrame(animate);
+                scene.rotation.x += 0.01;
                 scene.rotation.y += 0.01;
                 renderer.render(scene, camera);
             }
-
-            renderer.render(scene, camera);
         }
 
         init3DObject('canvas1', '1.obj');
