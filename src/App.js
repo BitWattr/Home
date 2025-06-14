@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
+import DonatePage from './pages/DonatePage'; // Import the new DonatePage component
 import './index.css';
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/donate" element={<DonatePage />} /> {/* Add the new route for DonatePage */}
         </Routes>
       </main>
       {/* Overlay is managed here, directly from App.js based on isOpen state */}
