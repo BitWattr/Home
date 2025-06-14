@@ -1,61 +1,15 @@
-import React from 'react';
+//import React from 'react';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+//import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGlobe, faLaptopCode } from '@fortawesome/free-solid-svg-icons';
 
 function ChatMimicryAI() {
-  const [inputText, setInputText] = useState('');
-  const [mimickedText, setMimickedText] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
+//  const [inputText, setInputText] = useState('');
+//  const [mimickedText, setMimickedText] = useState('');
+//  const [isLoading, setIsLoading] = useState(false);
+//  const [error, setError] = useState('');
 
-  const generateMimicry = async () => {
-    if (!inputText.trim()) {
-      setError('Please enter some text to mimic.');
-      setMimickedText('');
-      return;
-    }
-
-    setIsLoading(true);
-    setError('');
-    setMimickedText('');
-
-    try {
-      const chatHistory = [];
-      chatHistory.push({
-        role: "user",
-        parts: [{ text: `Mimic the following text in its style, tone, and vocabulary, generating a short, coherent response or continuation based on the input: "${inputText}"` }]
-      });
-
-      const payload = { contents: chatHistory };
-      const apiKey = ""; // Canvas will automatically provide the API key
-      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-
-      const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-
-      const result = await response.json();
-
-      if (result.candidates && result.candidates.length > 0 &&
-          result.candidates[0].content && result.candidates[0].content.parts &&
-          result.candidates[0].content.parts.length > 0) {
-        const text = result.candidates[0].content.parts[0].text;
-        setMimickedText(text);
-      } else {
-        setError('Failed to mimic text. Please try again.');
-        console.error('Unexpected API response structure:', result);
-      }
-    } catch (err) {
-      setError('An error occurred while communicating with the AI. Please try again later.');
-      console.error('Fetch error:', err);
-    } finally {
-      setIsLoading(false);
-    }
-  };
 
   return (
     <div className="project-detail-page p-8 bg-gray-50 min-h-screen">
@@ -144,36 +98,6 @@ function ChatMimicryAI() {
             <FontAwesomeIcon icon={faLaptopCode} /> Run it Locally (GitHub)
           </a>
         </div>
-
-        {/* Input and Output Section - Added to resolve unused variable warnings */}
-        <div className="mb-6">
-          <label htmlFor="inputText" className="block text-lg font-medium text-gray-800 mb-2">
-            Enter text to mimic:
-          </label>
-          <textarea
-            id="inputText"
-            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            rows="4"
-            value={inputText}
-            onChange={(e) => setInputText(e.target.value)}
-            placeholder="Type something here..."
-          ></textarea>
-          <button
-            onClick={generateMimicry}
-            className="mt-4 px-6 py-3 bg-blue-600 text-white font-bold rounded-md hover:bg-blue-700 transition-colors duration-200"
-            disabled={isLoading}
-          >
-            {isLoading ? 'Mimicking...' : 'Generate Mimicry'}
-          </button>
-          {error && <p className="text-red-600 mt-2">{error}</p>}
-        </div>
-
-        {mimickedText && (
-          <div className="mb-6 p-4 bg-gray-100 rounded-md">
-            <h3 className="text-xl font-semibold text-gray-800 mb-2">Mimicked Text:</h3>
-            <p className="text-lg text-gray-700">{mimickedText}</p>
-          </div>
-        )}
 
 
         <h2 className="text-3xl font-semibold text-gray-800 mb-4">✨ Key Features</h2>
