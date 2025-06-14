@@ -173,57 +173,8 @@ function ChatMimicryAI() {
           <span className="font-bold">For Online Use:</span> Our hosted service processes data temporarily for an effortless experience, leveraging secure cloud infrastructure.
         </p>
 
-
-        <h2 className="text-3xl font-semibold text-gray-800 mb-4">Live Demo: Experience the Mimicry</h2>
-        <p className="text-lg text-gray-700 leading-relaxed mb-4">
-          Enter some text below, and our Chat Mimicry AI will attempt to generate a response or continuation in a similar style.
-          This demonstrates its ability to adapt to various conversational nuances.
-        </p>
-
-        <div className="mimicry-demo bg-gray-100 p-6 rounded-lg border border-gray-200 mb-8">
-          <div className="mb-4">
-            <label htmlFor="inputText" className="block text-gray-700 text-sm font-bold mb-2">
-              Enter Text to Mimic:
-            </label>
-            <textarea
-              id="inputText"
-              className="shadow appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-32 resize-none"
-              placeholder="Type or paste text here to see the AI mimic its style..."
-              value={inputText}
-              onChange={(e) => setInputText(e.target.value)}
-              disabled={isLoading}
-            ></textarea>
-          </div>
-          <button
-            onClick={generateMimicry}
-            disabled={isLoading}
-            className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-200 ease-in-out ${
-              isLoading ? 'opacity-50 cursor-not-allowed' : ''
-            }`}
-          >
-            {isLoading ? 'Mimicking...' : 'Generate Mimicry'}
-          </button>
-          {error && (
-            <p className="text-red-500 text-sm mt-2">{error}</p>
-          )}
-          {mimickedText && (
-            <div className="mt-6 p-4 bg-white rounded-lg border border-gray-300">
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Mimicked Output:</h3>
-              <p className="text-gray-900 leading-relaxed whitespace-pre-wrap">{mimickedText}</p>
-            </div>
-          )}
-        </div>
-
-        <h2 className="text-3xl font-semibold text-gray-800 mb-4">Potential Applications:</h2>
-        <ul className="list-disc list-inside text-lg text-gray-700 mb-6 space-y-2">
-          <li><span className="font-medium">Personalized Chatbots:</span> Creating bots that can interact in a user's preferred communication style.</li>
-          <li><span className="font-medium">Content Generation:</span> Producing articles, marketing copy, or social media posts consistent with a specific brand voice.</li>
-          <li><span className="font-medium">Creative Writing:</span> Assisting authors in maintaining character voice or generating dialogue in a particular style.</li>
-          <li><span className="font-medium">Accessibility:</span> Adapting text to be more easily understood by users with specific cognitive needs or preferences.</li>
-        </ul>
-
         <p className="text-lg text-gray-700 leading-relaxed mb-6">
-          We are continuously refining the Chat Mimicry AI to improve its accuracy and versatility in understanding and reproducing diverse communication styles.
+          We are continuously refining the Chat Mimicry AI to improve its accuracy and versatility in understanding and reproducing human personalities.
           Ready to create your AI persona? Give it a try today!
         </p>
       </div>
