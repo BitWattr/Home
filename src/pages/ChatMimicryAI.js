@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGlobe, faLaptopCode } from '@fortawesome/free-solid-svg-icons'; // Added icons
+import { faGlobe, faLaptopCode } from '@fortawesome/free-solid-svg-icons';
 
 function ChatMimicryAI() {
   const [inputText, setInputText] = useState('');
@@ -144,6 +144,36 @@ function ChatMimicryAI() {
             <FontAwesomeIcon icon={faLaptopCode} /> Run it Locally (GitHub)
           </a>
         </div>
+
+        {/* Input and Output Section - Added to resolve unused variable warnings */}
+        <div className="mb-6">
+          <label htmlFor="inputText" className="block text-lg font-medium text-gray-800 mb-2">
+            Enter text to mimic:
+          </label>
+          <textarea
+            id="inputText"
+            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            rows="4"
+            value={inputText}
+            onChange={(e) => setInputText(e.target.value)}
+            placeholder="Type something here..."
+          ></textarea>
+          <button
+            onClick={generateMimicry}
+            className="mt-4 px-6 py-3 bg-blue-600 text-white font-bold rounded-md hover:bg-blue-700 transition-colors duration-200"
+            disabled={isLoading}
+          >
+            {isLoading ? 'Mimicking...' : 'Generate Mimicry'}
+          </button>
+          {error && <p className="text-red-600 mt-2">{error}</p>}
+        </div>
+
+        {mimickedText && (
+          <div className="mb-6 p-4 bg-gray-100 rounded-md">
+            <h3 className="text-xl font-semibold text-gray-800 mb-2">Mimicked Text:</h3>
+            <p className="text-lg text-gray-700">{mimickedText}</p>
+          </div>
+        )}
 
 
         <h2 className="text-3xl font-semibold text-gray-800 mb-4">✨ Key Features</h2>
