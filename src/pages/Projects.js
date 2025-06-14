@@ -72,6 +72,16 @@ function Projects() {
     <section className="projects-section py-8 px-4 sm:px-6 lg:px-8 bg-gray-100 min-h-screen">
       <h1 className="text-4xl font-bold text-center mb-12 text-gray-800">Our Projects</h1>
       <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+          <ProjectCard
+            title="Chat Mimicry AI"
+            projectLink="/projects/chat-mimicry-ai" // Link to the detailed page
+          >
+            <p className="text-gray-700 leading-relaxed">
+              This project explores an AI model designed to mimic conversation styles based on user-provided text. It focuses on capturing nuances in tone, vocabulary, and sentence structure to generate contextually relevant and stylistically similar responses.
+            </p>
+            <p className="text-sm text-gray-600 mt-2">Click the title for more details!</p>
+        </ProjectCard>
+        
         <ProjectCard 
           title="NoAI LG - No AI Language Generalizer" 
           githubLink="https://github.com/BitWattr/NoAI-LG"
@@ -91,16 +101,6 @@ function Projects() {
             We are working on a 3D low poly to high poly point cloud AI model. This innovative project aims to transform simple low poly structures into detailed high-quality 3D high poly models.
           </p>
           <p className="text-sm text-gray-600 mt-2">Click the title for more details and a live 3D demo!</p>
-        </ProjectCard>
-
-        <ProjectCard
-          title="Chat Mimicry AI"
-          projectLink="/projects/chat-mimicry-ai" // Link to the detailed page
-        >
-          <p className="text-gray-700 leading-relaxed">
-            This project explores an AI model designed to mimic conversation styles based on user-provided text. It focuses on capturing nuances in tone, vocabulary, and sentence structure to generate contextually relevant and stylistically similar responses.
-          </p>
-          <p className="text-sm text-gray-600 mt-2">Click the title for more details!</p>
         </ProjectCard>
       </div>
     </section>
