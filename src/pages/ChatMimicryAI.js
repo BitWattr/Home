@@ -76,7 +76,7 @@ function ChatMimicryAI() {
         <h1 className="text-4xl font-bold text-gray-800 mb-6">🗣️ AI Person Mimicry Chat 🧠</h1>
         <p className="text-lg text-gray-700 leading-relaxed mb-6">
           Transform your WhatsApp chat history into a unique AI persona that perfectly mirrors a specific participant's communication style.
-          Experience truly personalized and engaging AI interactions like never before, replicating tone, vocabulary, and nuances.
+          Experience truly personalized and engaging AI interactions, replicating tone, vocabulary, and nuances.
         </p>
 
         {/* Action Buttons */}
