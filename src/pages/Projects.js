@@ -79,7 +79,6 @@ function Projects() {
             <p className="text-gray-700 leading-relaxed">
               This project explores an AI model designed to mimic conversation styles based on user-provided text. It focuses on capturing nuances in tone, vocabulary, and sentence structure to generate contextually relevant and stylistically similar responses.
             </p>
-            <p className="text-sm text-gray-600 mt-2">Click the title for more details!</p>
         </ProjectCard>
         
         <ProjectCard 
@@ -90,7 +89,6 @@ function Projects() {
           <p className="text-gray-700 leading-relaxed">
             NoAI LG is an innovative project aimed at generating meaningful sentences without relying on neural networks. Instead of deep learning, it uses pattern-based techniques.
           </p>
-          <p className="text-sm text-gray-600 mt-2">Click the title for more details!</p>
         </ProjectCard>
 
         <ProjectCard 
@@ -100,7 +98,8 @@ function Projects() {
           <p className="text-gray-700 leading-relaxed">
             We are working on a 3D low poly to high poly point cloud AI model. This innovative project aims to transform simple low poly structures into detailed high-quality 3D high poly models.
           </p>
-          <p className="text-sm text-gray-600 mt-2">Click the title for more details and a live 3D demo!</p>
+          {/* Note: The "Click the title for more details and a live 3D demo!" text is removed,
+               and the "Try Now" button in ProjectCard will handle the link for the demo. */}
         </ProjectCard>
       </div>
     </section>

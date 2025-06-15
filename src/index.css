@@ -405,3 +405,51 @@ canvas {
         display: block;
     }
 }
+
+/* Custom CSS for glowing button animation and enhanced glassmorphism */
+@keyframes glowing-button-project {
+    0% {
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(0, 123, 255, 0.8), 0 0 25px rgba(0, 123, 255, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
+    }
+}
+
+.animate-glowing-button-project {
+    animation: glowing-button-project 2s infinite alternate;
+}
+
+/* Enhanced Glassmorphism effect for the button */
+.glass-button {
+    background: rgba(0, 123, 255, 0.4); /* Sea blue with transparency */
+    backdrop-filter: blur(12px); /* Increased blur */
+    -webkit-backdrop-filter: blur(12px); /* For Safari */
+    border: 1px solid rgba(0, 123, 255, 0.6); /* More visible blue border */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+    color: white; /* Text color */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* Stronger text shadow for contrast */
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transitions for hover */
+}
+
+.glass-button:hover {
+    background: rgba(0, 123, 255, 0.6); /* More opaque sea blue on hover */
+    border-color: rgba(0, 123, 255, 0.8); /* Brighter blue border on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25); /* Larger shadow on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+body.dark-mode .glass-button {
+    background: rgba(40, 120, 200, 0.4); /* Darker transparent sea blue for dark mode */
+    border: 1px solid rgba(40, 120, 200, 0.6); /* Lighter blue border in dark mode */
+    color: #f4f4f4; /* Light text in dark mode */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4); /* Darker text shadow for contrast in dark mode */
+}
+
+body.dark-mode .glass-button:hover {
+    background: rgba(40, 120, 200, 0.6); /* More opaque on hover in dark mode */
+    border-color: rgba(40, 120, 200, 0.8); /* Brighter border on hover in dark mode */
+}
