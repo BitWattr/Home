@@ -147,11 +147,46 @@ header {
     padding: 1rem;
     text-align: left;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    display: flex; /* Make header a flex container */
-    justify-content: space-between; /* Space out title and right elements */
-    align-items: center; /* Vertically align items */
-    position: relative; /* Essential for positioning hamburger inside */
-    z-index: 1001; /* Ensure header content is above overlay */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky; /* Keep this */
+    top: 0;          /* Keep this */
+    z-index: 1001;   /* Ensure header is on top of everything */
+}
+
+/* Make the navigation bar (with links) sticky directly below the header */
+nav {
+    background-color: #444;
+    color: #fff;
+    padding: 0.5rem 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky; /* Add this line */
+    top: 60px;       /* Set this to your header's height. Adjust if needed. */
+    z-index: 1000;   /* Ensure nav is below header (1001) but above main content */
+}
+
+/* For mobile responsiveness, ensure the sidebar behavior is still correct */
+@media (max-width: 768px) {
+    /* ... existing mobile styles ... */
+
+    /* Ensure the hamburger menu (if part of header) and sidebar itself are correctly positioned */
+    .hamburger-menu {
+        /* ... existing styles ... */
+        z-index: 1002; /* Ensure hamburger is above sticky header if it's placed inside */
+    }
+
+    nav ul { /* This is your sidebar menu */
+        /* ... existing styles ... */
+        position: fixed; /* This should already be fixed for the sidebar */
+        top: 0; /* Sidebar starts from the very top */
+        z-index: 1000; /* Sidebar should be above main content, but below hamburger if needed */
+    }
+
+    body.dark-mode nav ul {
+        background-color: #2a2a2a;
+    }
 }
 
 header h1 {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; // Import useState and useEffect
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Navigation from './components/Navigation';
@@ -7,16 +7,15 @@ import About from './pages/About';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import DonatePage from './pages/DonatePage';
-import NoAILG from './pages/NoAILG'; // New project page
-import Think3D from './pages/Think3D'; // New project page
-import ChatMimicryAI from './pages/ChatMimicryAI'; // New project page
+import NoAILG from './pages/NoAILG';
+import Think3D from './pages/Think3D';
+import ChatMimicryAI from './pages/ChatMimicryAI';
 import './index.css';
 
 function App() {
-  const [isOpen, setIsOpen] = useState(false); // Manage sidebar state in App.js
-  const [isDarkMode, setIsDarkMode] = useState(true); // Manage dark mode state
+  const [isOpen, setIsOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
-  // Effect to apply/remove dark mode class to body
   useEffect(() => {
     if (isDarkMode) {
       document.body.classList.add('dark-mode');
@@ -39,27 +38,30 @@ function App() {
 
   return (
     <Router>
-      {/* Pass toggleSidebar, isDarkMode, and toggleDarkMode to Header */}
-      <Header 
-        toggleSidebar={toggleSidebar} 
-        isDarkMode={isDarkMode} 
-        toggleDarkMode={toggleDarkMode} 
+      <Header
+        toggleSidebar={toggleSidebar}
+        isDarkMode={isDarkMode}
+        toggleDarkMode={toggleDarkMode}
       />
-      {/* Pass isOpen and closeSidebar to Navigation */}
       <Navigation isOpen={isOpen} closeSidebar={closeSidebar} />
       <main>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} />
+          {/* Render all main sections when the path is "/" */}
+          <Route path="/" element={
+            <>
+              <Home />
+              <About />
+              <Projects />
+              <Contact />
+            </>
+          } />
+          {/* Keep specific routes for individual project pages and donate page */}
           <Route path="/donate" element={<DonatePage />} />
-          <Route path="/projects/noai-lg" element={<NoAILG />} /> {/* Route for NoAI LG */}
-          <Route path="/projects/think-3d" element={<Think3D />} /> {/* Route for Think 3D */}
-          <Route path="/projects/chat-mimicry-ai" element={<ChatMimicryAI />} /> {/* Route for Chat Mimicry AI */}
+          <Route path="/projects/noai-lg" element={<NoAILG />} />
+          <Route path="/projects/think-3d" element={<Think3D />} />
+          <Route path="/projects/chat-mimicry-ai" element={<ChatMimicryAI />} />
         </Routes>
       </main>
-      {/* Overlay is managed here, directly from App.js based on isOpen state */}
       {isOpen && <div className="overlay" onClick={closeSidebar}></div>}
     </Router>
   );

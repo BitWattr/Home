@@ -1,24 +1,34 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom'; // Import Link as well
+import { scroller } from 'react-scroll'; // Import scroller
 
-// Accept isOpen and closeSidebar as props
 function Navigation({ isOpen, closeSidebar }) {
+  const scrollToSection = (sectionId) => {
+    closeSidebar(); // Close sidebar after clicking
+    scroller.scrollTo(sectionId, {
+      duration: 800, // Duration of the scroll animation in milliseconds
+      delay: 0,
+      smooth: 'easeInOutQuart' // Type of easing for the scroll animation
+    });
+  };
+
   return (
     <nav>
-      {/* The hamburger button is now in Header.js */}
       <ul className={`nav-links ${isOpen ? 'open' : ''}`}>
-        <li><NavLink to="/" className={({ isActive }) => isActive ? "active" : ""} onClick={closeSidebar}>Home</NavLink></li>
-        <li><NavLink to="/about" className={({ isActive }) => isActive ? "active" : ""} onClick={closeSidebar}>About</NavLink></li>
-        <li><NavLink to="/projects" className={({ isActive }) => isActive ? "active" : ""} onClick={closeSidebar}>Projects</NavLink></li>
-        <li><NavLink to="/contact" className={({ isActive }) => isActive ? "active" : ""} onClick={closeSidebar}>Contact</NavLink></li>
-        {/* Add the new Donate link */}
+        {/* Use Link and onClick for scrolling to sections on the home page */}
+        <li><Link to="/" onClick={() => scrollToSection('home-section')}>Home</Link></li>
+        <li><Link to="/" onClick={() => scrollToSection('about-section')}>About</Link></li>
+        <li><Link to="/" onClick={() => scrollToSection('projects-section')}>Projects</Link></li>
+        <li><Link to="/" onClick={() => scrollToSection('contact-section')}>Contact</Link></li>
+        
+        {/* Keep NavLink for the separate Donate page */}
         <li>
           <NavLink
             to="/donate"
             className={({ isActive }) => `donate-button ${isActive ? "active" : ""}`}
             onClick={closeSidebar}
             style={{
-              background: 'linear-gradient(45deg, #FF6B6B, #556270)', // Colorful gradient
+              background: 'linear-gradient(45deg, #FF6B6B, #556270)',
               color: 'white',
               padding: '8px 15px',
               borderRadius: '20px',
@@ -26,8 +36,8 @@ function Navigation({ isOpen, closeSidebar }) {
               fontWeight: 'bold',
               transition: 'transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out',
               boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-              display: 'inline-block', // Ensure padding works
-              marginTop: '10px' // Space it from other links in sidebar
+              display: 'inline-block',
+              marginTop: '10px'
             }}
             onMouseOver={(e) => {
                 e.currentTarget.style.transform = 'scale(1.05)';
@@ -42,7 +52,6 @@ function Navigation({ isOpen, closeSidebar }) {
           </NavLink>
         </li>
       </ul>
-      {/* Overlay is now in App.js */}
     </nav>
   );
 }
