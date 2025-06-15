@@ -14,7 +14,7 @@ import './index.css';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false); // Manage sidebar state in App.js
-  const [isDarkMode, setIsDarkMode] = useState(false); // Manage dark mode state
+  const [isDarkMode, setIsDarkMode] = useState(true); // Manage dark mode state
 
   // Effect to apply/remove dark mode class to body
   useEffect(() => {
