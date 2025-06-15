@@ -7,7 +7,139 @@ body {
     line-height: 1.6;
     color: #333;
     overflow-x: hidden; /* Add this line to prevent horizontal scrolling and content peek */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for dark mode */
 }
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #1a1a1a !important; /* Dark background with !important */
+    color: #f4f4f4 !important; /* Light text with !important */
+}
+
+body.dark-mode header {
+    background-color: #2a2a2a !important; /* Darker header */
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode nav {
+    background-color: #3a3a3a !important; /* Darker nav */
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode nav a {
+    color: #f4f4f4 !important;
+}
+
+body.dark-mode nav a:hover {
+    background-color: #5a5a5a !important;
+}
+
+body.dark-mode nav a.active {
+    background-color: #6a6a6a !important;
+}
+
+body.dark-mode .project-card {
+    background-color: #2a2a2a !important; /* Dark project card */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid #444;
+}
+
+body.dark-mode .project-card h2,
+body.dark-mode .project-card h3 {
+    color: #f4f4f4 !important; /* Light headings */
+}
+
+body.dark-mode .project-card p {
+    color: #d4d4d4 !important; /* Lighter paragraph text */
+}
+
+body.dark-mode .project-card a {
+    color: #90caf9 !important; /* Light blue links */
+}
+
+/* Generic overrides for common light-mode utility classes */
+body.dark-mode .bg-white {
+    background-color: #2a2a2a !important;
+}
+
+body.dark-mode .bg-gray-50 {
+    background-color: #1a1a1a !important;
+}
+
+body.dark-mode .text-gray-800 {
+    color: #f4f4f4 !important;
+}
+
+body.dark-mode .text-gray-700 {
+    color: #d4d4d4 !important;
+}
+
+body.dark-mode .text-gray-600 {
+    color: #b4b4b4 !important; /* Adjust as needed */
+}
+
+body.dark-mode .shadow-lg {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+body.dark-mode .border-gray-200 {
+    border-color: #444 !important;
+}
+
+body.dark-mode .text-blue-600 { /* For links in project cards */
+    color: #90caf9 !important;
+}
+
+body.dark-mode .hover\:text-blue-800:hover {
+    color: #bbdefb !important;
+}
+
+body.dark-mode .text-indigo-600 { /* For GitHub links */
+    color: #c5aaff !important;
+}
+
+body.dark-mode .hover\:text-indigo-800:hover {
+    color: #e0baff !important;
+}
+
+body.dark-mode .text-sm {
+  color: #b4b4b4 !important;
+}
+
+/* For DonatePage specific styles */
+body.dark-mode .donate-page-container {
+    background-color: #2a2a2a !important;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1) !important;
+}
+
+body.dark-mode .donate-page-container h2,
+body.dark-mode .donate-page-container h3,
+body.dark-mode .donate-page-container p {
+    color: #f4f4f4 !important;
+}
+
+body.dark-mode .game-showcase,
+body.dark-mode .other-games-section {
+    background-color: #3a3a3a !important;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.05) !important;
+}
+
+body.dark-mode .colorful-button {
+    background: linear-gradient(45deg, #FF6B6B, #556270) !important; /* Or a dark mode friendly gradient */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+    color: white !important;
+}
+body.dark-mode .colorful-button:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+body.dark-mode .back-to-upload-button {
+  background-color: #5a6268 !important;
+}
+body.dark-mode .back-to-upload-button:hover {
+  background-color: #6c757d !important;
+}
+
 
 header {
     background-color: #333;
@@ -16,7 +148,7 @@ header {
     text-align: left;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     display: flex; /* Make header a flex container */
-    justify-content: space-between; /* Space out title and hamburger */
+    justify-content: space-between; /* Space out title and right elements */
     align-items: center; /* Vertically align items */
     position: relative; /* Essential for positioning hamburger inside */
     z-index: 1001; /* Ensure header content is above overlay */
@@ -25,7 +157,41 @@ header {
 header h1 {
     margin: 0;
     font-size: 2em;
+    /* Vertically align logo with nav bar */
+    line-height: 1; /* Adjust line height to prevent extra space */
+    padding-left: 1rem; /* Align with nav links */
 }
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Space between dark mode button and hamburger */
+}
+
+.dark-mode-toggle {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding: 0.5rem;
+    border-radius: 50%; /* Make it round */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dark-mode-toggle:hover {
+    color: #f0c420; /* Yellow on hover for light mode icon */
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .dark-mode-toggle:hover {
+    color: #7bdcb5; /* Greenish on hover for dark mode icon */
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
 
 nav {
     background-color: #444;
@@ -190,6 +356,10 @@ canvas {
         z-index: 1000; /* Sidebar should be above the overlay */
         align-items: flex-start;
         padding-left: 20px;
+    }
+
+    body.dark-mode nav ul {
+        background-color: #2a2a2a;
     }
 
     nav ul.open {

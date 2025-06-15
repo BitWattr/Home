@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; // Import useState
+import React, { useState, useEffect } from 'react'; // Import useState and useEffect
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Navigation from './components/Navigation';
@@ -14,6 +14,16 @@ import './index.css';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false); // Manage sidebar state in App.js
+  const [isDarkMode, setIsDarkMode] = useState(false); // Manage dark mode state
+
+  // Effect to apply/remove dark mode class to body
+  useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+  }, [isDarkMode]);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -23,10 +33,18 @@ function App() {
     setIsOpen(false);
   };
 
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
   return (
     <Router>
-      {/* Pass toggleSidebar to Header */}
-      <Header toggleSidebar={toggleSidebar} />
+      {/* Pass toggleSidebar, isDarkMode, and toggleDarkMode to Header */}
+      <Header 
+        toggleSidebar={toggleSidebar} 
+        isDarkMode={isDarkMode} 
+        toggleDarkMode={toggleDarkMode} 
+      />
       {/* Pass isOpen and closeSidebar to Navigation */}
       <Navigation isOpen={isOpen} closeSidebar={closeSidebar} />
       <main>
