@@ -37,7 +37,7 @@ function Contact() {
           Email Us
         </a>
         <a
-          href="https://discord.gg/3mhjrDeT"
+          href="https://discord.gg/GPas45rn"
           target="_blank"
           rel="noopener noreferrer"
           style={{
